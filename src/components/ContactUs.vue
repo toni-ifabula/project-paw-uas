@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-custom navbar-expand-sm">
+    <div id="app">
+        <nav class="navbar navbar-custom navbar-expand-sm">
         <img src="@/assets/logo.png" width="50" height="50" alt="">
         <p class="navbar-brand-custom" style="margin:0rem 1rem">Yuk Titip</p>
         <ul class="navbar-nav ml-auto"> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="#"> 
+                <a class="nav-link" style="color: white; margin:0.5rem" href="#"> 
                   Home 
                 </a> 
             </li> 
@@ -20,59 +20,42 @@
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <button class="btn" type="submit" style="margin: 0.5rem;">Login</button>
+                <a class="nav-link" href="aboutUs.html"> 
+                  <i class="fa fa-user fa-2x" aria-hidden="true" 
+                        style="color: white; margin:0rem 1rem"></i> 
+                </a> 
             </li> 
-            <li class="nav-item"> 
-                <button class="btn" style="background-color: #E7AE00; margin: 0.5rem" type="submit">Sign Up</button>
-            </li> 
-        </ul> 
+        </ul>  
     </nav>
 
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1 style="font-size: 50px; font-weight: bold">Yuk Titip</h1>
-            <p style="font-family: 'Roboto'; font-size: larger;">Yuk titip adalah platform penyedia jasa titip beli barang yang dijual diluar negeri. <br>
-                Kami ada untuk mewujudkan keinginan anda. </p>
-        </div>
-    </div>
+    <div class="container" style="width:60%">
+        <h1 style="margin: 1rem 0rem; font-weight: bold">Contact Us</h1>
 
-    <div class="card-container">
-        <h1 class="pelayanan">Pelayanan Kami</h1>
-        <div class="row">
-            <div class="col-sm">
-                <div class="card text-center w-75" style="left: 5rem; margin-top: 10rem;">
-                    <div class="card-icon">
-                        <i class="fa fa-list-alt" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-weight:bold">Customizable</h5>
-                        <p class="card-text">Setiap pesanan dapat anda atur sesuai keinginan</p>
-                    </div>
+        <form action="">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFirstName">Nama Depan</label>
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="Nama Depan">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputLastName">Nama Belakang</label>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Nama Belakang">
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="card text-center w-75" style="left: 4rem; margin-top: 10rem;">
-                    <div class="card-icon">
-                        <i class="fa fa-plane" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-weight:bold">Fast</h5>
-                        <p class="card-text">Barang dapat sampai lebih cepat dari jasa pengiriman barang</p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="inputOrg">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
-            <div class="col-sm">
-                <div class="card text-center w-75" style="left: 3rem; margin-top: 10rem;">
-                    <div class="card-icon">
-                        <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-weight:bold">Reliable</h5>
-                        <p class="card-text">Kami dapat memastikan barang anda sampai tujuan dengan baik</p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="inputPhone">Nomor Telepon</label>
+                <input type="number" class="form-control" id="inputPhone" placeholder="08xxxxxxxxxx">
             </div>
-        </div>
+            <div class="form-group">
+                <label for="txtMessage">Message</label>
+                <textarea class="form-control" id="txtMessage" rows="10" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
     </div>
 
     <div class="footer">
@@ -103,8 +86,7 @@
             </div>
         </div>
     </div>
-  </div>
-
+    </div>
 </template>
 
 <script>

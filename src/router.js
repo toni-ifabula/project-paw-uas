@@ -19,7 +19,43 @@ const router = new VueRouter({
             meta: {title: 'AboutUs'},
             component: importComponent('AboutUs'),
         },
+        {
+            path: "/EmailActivation",
+            name: "EmailActivation",
+            meta: {title: 'EmailActivation'},
+            component: importComponent('EmailActivation'),
+        },
+        {
+            path: "/ContactUs",
+            name: "ContactUs",
+            meta: {title: 'ContactUs'},
+            component: importComponent('ContactUs'),
+        },
+        {
+            path: "/ProfileUpdate",
+            name: "ProfileUpdate",
+            meta: {title: 'ProfileUpdate'},
+            component: importComponent('ProfileUpdate'),
+        },
+        {
+            path: "/ProfileUser",
+            name: "ProfileUser",
+            meta: {title: 'ProfileUser'},
+            component: importComponent('ProfileUser'),
+        },
+        {
+            path: "/ChangePicture",
+            name: "ChangePicture",
+            meta: {title: 'ChangePicture'},
+            component: importComponent('ChangePicture'),
+        },
     ]
+});
+
+//Mengeset judul
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title
+    next()
 });
 
 export default router;
