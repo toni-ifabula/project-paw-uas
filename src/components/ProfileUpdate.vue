@@ -36,103 +36,171 @@
             <div class="form-group row">
                 <label for="inputNama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputNama">
+                    <input type="text" class="form-control" v-model="nama">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputTgl" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" id="inputTgl">
+                    <input type="date" class="form-control" v-model="tanggal_lahir">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputJK" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputJk">
+                    <input type="text" class="form-control" v-model="jenis_kelamin">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="inputEmail" readonly>
+                    <input v-model="email" class="form-control" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputTelp" class="col-sm-3 col-form-label">No. Telp</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" id="inputTelp">
+                    <input type="number" class="form-control" v-model="no_telp">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputProv" class="col-sm-3 col-form-label">Provinsi</label>
                 <div class="col-sm-9">
-                    <select name="provinsi" id="" class="form-control">
-                        <option value="-" selected>-- Select Provinsi --</option>
-                        <option value="Nanggroe Aceh Darussalam">Nanggroe Aceh Darussalam</option>
-                        <option value="Sumatera Utara">Sumatera Utara</option>
-                        <option value="Sumatera Barat ">Sumatera Barat </option>
-                        <option value="Riau">Riau</option>
-                        <option value="Kepulauan Riau ">Kepulauan Riau </option>
-                        <option value="Jambi">Jambi</option>
-                        <option value="Bengkulu">Bengkulu</option>
-                        <option value="Sumatera Selatan">Sumatera Selatan</option>
-                        <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                        <option value="Lampung">Lampung</option>
-                        <option value="Banten">Banten</option>
-                        <option value="DKI Jakarta">DKI Jakarta</option>
-                        <option value="Jawa Barat">Jawa Barat</option>
-                        <option value="Jawa Tengah">Jawa Tengah</option>
-                        <option value="Jawa Timur">Jawa Timur</option>
-                        <option value="DI Yogyakarta">DI Yogyakarta</option>
-                        <option value="Bali">Bali</option>
-                        <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                        <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                        <option value="Kalimantan Barat">Kalimantan Barat</option>
-                        <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                        <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                        <option value="Kalimantan Timur">Kalimantan Timur</option>
-                        <option value="Kalimantan Utara">Kalimantan Utara</option>
-                        <option value="Gorontalo">Gorontalo</option>
-                        <option value="Sulawesi Barat">Sulawesi Barat</option>
-                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                        <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                        <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                        <option value="Sulawesi Utara">Sulawesi Utara</option>
-                        <option value="Maluku">Maluku</option>
-                        <option value="Maluku Utara">Maluku Utara</option>
-                        <option value="Papua">Papua</option>
-                        <option value="Papua Barat">Papua Barat</option>
-                    </select>
+                    <b-form-select v-model="provinsi" :options="options"></b-form-select>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputAlamat" class="col-sm-3 col-form-label">Alamat</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputAlamat">
+                    <input type="text" class="form-control" v-model="alamat">
                 </div>
             </div>
-
-            <div class="row" style="margin: 1rem 0rem;">
-                <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-primary btn-md center-block" 
-                        Style="width: 100px; margin: 0px 20px">
-                        Submit
-                    </button>
-                    <a href="/ProfileUser" class="btn btn-danger btn-md center-block" 
-                        Style="width: 100px; background-color: red; margin: 0px 20px; color: white;">
-                        Cancel
-                    </a>
-                </div>
-            </div>
-            
         </form>
+
+        <div class="row" style="margin: 1rem 0rem;">
+            <div class="col-sm-12 text-center">
+                <button @click="submit()" class="btn btn-primary btn-md center-block" 
+                    Style="width: 100px; margin: 0px 20px">
+                    Submit
+                </button>
+                <a href="/ProfileUser" class="btn btn-danger btn-md center-block" 
+                    Style="width: 100px; background-color: red; margin: 0px 20px; color: white;">
+                    Cancel
+                </a>
+            </div>
+        </div>
+        
     </div>  
+
+    <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>
+        {{ error_message }}
+    </v-snackbar>
+
     </div>
 </template>
 
 <script>
 export default {
-    
+    name: "ProfileUpdate",
+    data() {
+        return {
+            nama: '',
+            tanggal_lahir: '',
+            jenis_kelamin: '',
+            email: '',
+            no_telp: '',
+            provinsi: '',
+            alamat: '',
+            snackbar: false,
+            error_message: "",
+            color: "",
+            load: false,
+            selected: '',
+            options: [
+                { value: 'Nanggroe Aceh Darussalam', text: 'Nanggroe Aceh Darussalam' },
+                { value: 'Sumatera Utara', text: 'Sumatera Utara' },
+                { value: 'Sumatera Barat', text: 'Sumatera Barat' },
+                { value: 'Riau', text: 'Riau' },
+                { value: 'Kepulauan Riau', text: 'Kepulauan Ria' },
+                { value: 'Jambi', text: 'Jambi' },
+                { value: 'Bengkulu', text: 'Bengkulu' },
+                { value: 'Sumatera Selatan', text: 'Sumatera Selatan' },
+                { value: 'Kepulauan Bangka Belitung', text: 'Kepulauan Bangka Belitung' },
+                { value: 'Lampung', text: 'Lampung' },
+                { value: 'Banten', text: 'Banten' },
+                { value: 'DKI Jakarta', text: 'DKI Jakarta' },
+                { value: 'Jawa Barat', text: 'Jawa Barat' },
+                { value: 'Jawa Tengah', text: 'Jawa Tengah' },
+                { value: 'Jawa Timur', text: 'Jawa Timur' },
+                { value: 'DI Yogyakarta', text: 'DI Yogyakarta' },
+                { value: 'Bali', text: 'Bali' },
+                { value: 'Nusa Tenggara Barat', text: 'Nusa Tenggara Barat' },
+                { value: 'Nusa Tenggara Timur', text: 'Nusa Tenggara Timur' },
+                { value: 'Kalimantan Barat', text: 'Kalimantan Barat' },
+                { value: 'Kalimantan Selatan', text: 'Kalimantan Selatan' },
+                { value: 'Kalimantan Tengah', text: 'Kalimantan Tengah' },
+                { value: 'Kalimantan Timur', text: 'Kalimantan Timur' },
+                { value: 'Kalimantan Utara', text: 'Kalimantan Utara' },
+                { value: 'Gorontalo', text: 'Gorontalo' },
+                { value: 'Sulawesi Barat', text: 'Sulawesi Barat' },
+                { value: 'Sulawesi Selatan', text: 'Sulawesi Selatan' },
+                { value: 'Sulawesi Tenggara', text: 'Sulawesi Tenggara' },
+                { value: 'Sulawesi Tengah', text: 'Sulawesi Tengah' },
+                { value: 'Sulawesi Utara', text: 'Sulawesi Utara' },
+                { value: 'Maluku', text: 'Maluku' },
+                { value: 'Maluku Utara', text: 'Maluku Utara' },
+                { value: 'Papua', text: 'Papua' },
+                { value: 'Papua Barat', text: 'Papua Barat' },
+            ]
+        }
+    },
+
+    methods: {
+        readData() {
+            var url = this.$api + '/user/' + '1' //test show user id = 1
+            this.$http.get(url)
+                .then(response => {
+                    this.nama = response.data.data.name;
+                    this.tanggal_lahir = response.data.data.tanggal_lahir;
+                    this.jenis_kelamin = response.data.data.jenis_kelamin;
+                    this.email = response.data.data.email;
+                    this.no_telp = response.data.data.no_telp;
+                    this.provinsi = response.data.data.provinsi;
+                    this.alamat = response.data.data.alamat;
+                })
+        },
+
+        submit() {
+            this.load = true;
+                this.$http
+                    .put(this.$api + "/update/" + '1', { //test update user id = 1
+                        name: this.nama,
+                        tanggal_lahir: this.tanggal_lahir,
+                        jenis_kelamin: this.jenis_kelamin,
+                        email: this.email,
+                        provinsi: this.provinsi,
+                        alamat: this.alamat,
+                        no_telp: this.no_telp,
+                    })
+                    .then((response) => {
+                        this.error_message = response.data.message;
+                        this.color = "green";
+                        this.snackbar = true;
+                        this.load = false;
+                        this.clear();
+                    })
+                    .catch((error) => {
+                        this.error_message = error.response.data.message;
+                        this.color = "red";
+                        this.snackbar = true;
+                        this.load = false;
+                    });
+        }
+    },
+
+    mounted() {
+        this.readData();
+    }
 }
 </script>
 

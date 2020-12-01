@@ -42,43 +42,43 @@
             <div class="form-group row">
                 <label for="inputNama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputNama" readonly>
+                    <input type="text" class="form-control" v-model="nama" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputTgl" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputTgl" readonly>
+                    <input type="text" class="form-control" v-model="tanggal_lahir" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputJK" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputJk" readonly>
+                    <input type="text" class="form-control" v-model="jenis_kelamin" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="inputEmail" readonly>
+                    <input type="email" class="form-control" v-model="email" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputTelp" class="col-sm-3 col-form-label">No. Telp</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" id="inputTelp" readonly>
+                    <input type="number" class="form-control" v-model="noTelp" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputProv" class="col-sm-3 col-form-label">Provinsi</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputProv" readonly>
+                    <input type="text" class="form-control" v-model="provinsi" readonly>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputAlamat" class="col-sm-3 col-form-label">Alamat</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputAlamat" readonly>
+                    <input type="text" class="form-control" v-model="alamat" readonly>
                 </div>
             </div>
 
@@ -93,7 +93,38 @@
 
 <script>
 export default {
-    
+    name: "ProfileUser",
+    data() {
+        return {
+            nama: '',
+            tanggal_lahir: '',
+            jenis_kelamin: '',
+            email: '',
+            noTelp: '',
+            provinsi: '',
+            alamat: '',
+        }
+    },
+
+    methods: {
+        readData() {
+            var url = this.$api + '/user/' + '1' //test show user id = 1
+            this.$http.get(url)
+                .then(response => {
+                    this.nama = response.data.data.name;
+                    this.tanggal_lahir = response.data.data.tanggal_lahir;
+                    this.jenis_kelamin = response.data.data.jenis_kelamin;
+                    this.email = response.data.data.email;
+                    this.noTelp = response.data.data.no_telp;
+                    this.provinsi = response.data.data.provinsi;
+                    this.alamat = response.data.data.alamat;
+                })
+        },
+    },
+
+    mounted() {
+        this.readData();
+    }
 }
 </script>
 
