@@ -10,20 +10,20 @@
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="contactUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/ContactUs"> 
                   Contact Us
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="aboutUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/AboutUs"> 
                   About Us 
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <button class="btn" type="submit" style="margin: 0.5rem;">Login</button>
+                <a class="btn btn-primary" style="margin: 0.5rem; color: white;" href="#">Login</a>
             </li> 
             <li class="nav-item"> 
-                <button class="btn" style="background-color: #E7AE00; margin: 0.5rem" type="submit">Sign Up</button>
+                <a class="btn" style="background-color: #E7AE00; color: white; margin: 0.5rem" href="#">Sign Up</a>
             </li> 
         </ul> 
     </nav>
@@ -85,9 +85,9 @@
                 <br>
                 <a style="color: white;" href="#">Home</a>
                 <br><br>
-                <a style="color: white;" href="contactUs.html">Contact Us</a>
+                <a style="color: white;" href="/ContactUs">Contact Us</a>
                 <br><br>
-                <a style="color: white;" href="aboutUs.html">About Us</a>
+                <a style="color: white;" href="/AboutUs">About Us</a>
             </div>
             <div class="col-sm-3" style="margin-top: 2rem;">
                 <h4 style="font-weight:bold; color:white">Contact</h4>

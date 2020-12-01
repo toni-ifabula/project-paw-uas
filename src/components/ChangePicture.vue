@@ -10,17 +10,17 @@
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="contactUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/ContactUs"> 
                   Contact Us
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="aboutUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/AboutUs"> 
                   About Us 
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" href="aboutUs.html"> 
+                <a class="nav-link" href="/ProfileUser"> 
                   <i class="fa fa-user fa-2x" aria-hidden="true" 
                         style="color: white; margin:0rem 1rem"></i> 
                 </a> 
@@ -49,7 +49,7 @@
             </form> 
         </div>
 
-        <a href="profileUser.php" class="btn btn-primary" style="position:absolute; left:46%; color:white">Back to Profile</a>
+        <a href="/ProfileUser" class="btn btn-primary" style="position:absolute; left:46%; color:white">Back to Profile</a>
         
     </div>
     </div>

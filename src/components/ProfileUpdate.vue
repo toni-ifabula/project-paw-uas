@@ -10,17 +10,17 @@
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="contactUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/ContactUs"> 
                   Contact Us
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="aboutUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/ContactUs"> 
                   About Us 
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" href="aboutUs.html"> 
+                <a class="nav-link" href="/ProfileUser"> 
                   <i class="fa fa-user fa-2x" aria-hidden="true" 
                         style="color: white; margin:0rem 1rem"></i> 
                 </a> 
@@ -118,10 +118,10 @@
                         Style="width: 100px; margin: 0px 20px">
                         Submit
                     </button>
-                    <button type="reset" class="btn btn-danger btn-md center-block" 
-                        Style="width: 100px; background-color: red; margin: 0px 20px">
+                    <a href="/ProfileUser" class="btn btn-danger btn-md center-block" 
+                        Style="width: 100px; background-color: red; margin: 0px 20px; color: white;">
                         Cancel
-                    </button>
+                    </a>
                 </div>
             </div>
             

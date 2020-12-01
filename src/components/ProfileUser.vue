@@ -10,17 +10,17 @@
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="contactUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/ContactUs"> 
                   Contact Us
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" style="color: white; margin: 0.5rem" href="aboutUs.html"> 
+                <a class="nav-link" style="color: white; margin: 0.5rem" href="/AboutUs"> 
                   About Us 
                 </a> 
             </li> 
             <li class="nav-item"> 
-                <a class="nav-link" href="aboutUs.html"> 
+                <a class="nav-link" href="/ProfileUser"> 
                   <i class="fa fa-user fa-2x" aria-hidden="true" 
                         style="color: white; margin:0rem 1rem"></i> 
                 </a> 
@@ -34,8 +34,8 @@
             <img src="@/assets/profile.png" class="mx-auto d-block rounded-circle" alt="Cinque Terre" style="margin-top: 1rem;">
         </div>
 
-        <div style="margin: 1rem 0rem;">
-            <button onclick="window.location='http://www.google.com'" class="btn mx-auto d-block">Change Photo</button>
+        <div style="margin: 1rem" align="center">
+            <a class="btn btn-primary" style="color:white;" href="/ChangePicture">Change Photo</a>
         </div>
 
         <form action="">
@@ -82,8 +82,8 @@
                 </div>
             </div>
 
-            <div style="margin: 1rem 0rem;">
-                <button type="submit" class="btn mx-auto d-block">Change Profile</button>
+            <div style="margin: 1rem 0rem;" align="center">
+                <a href="/ProfileUpdate" class="btn btn-primary" style="color:white;">Change Profile</a>
             </div>
             
         </form>

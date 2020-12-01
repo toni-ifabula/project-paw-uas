@@ -5,6 +5,10 @@ import router from './router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'jquery'
 import 'popper.js'
+import axios from 'axios'
+
+Vue.prototype.$http = axios;
+Vue.prototype.$api = 'http://127.0.0.1:8000/api';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
