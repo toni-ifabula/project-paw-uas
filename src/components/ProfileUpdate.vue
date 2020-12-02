@@ -85,7 +85,7 @@
                 </button>
                 <a href="/ProfileUser" class="btn btn-danger btn-md center-block" 
                     Style="width: 100px; background-color: red; margin: 0px 20px; color: white;">
-                    Cancel
+                    Back
                 </a>
             </div>
         </div>
@@ -104,6 +104,7 @@ export default {
     name: "ProfileUpdate",
     data() {
         return {
+            userID: '',
             nama: '',
             tanggal_lahir: '',
             jenis_kelamin: '',
@@ -157,23 +158,28 @@ export default {
 
     methods: {
         readData() {
-            var url = this.$api + '/user/' + '1' //test show user id = 1
-            this.$http.get(url)
+            var url = this.$api + '/user'
+            this.$http.get(url, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
                 .then(response => {
-                    this.nama = response.data.data.name;
-                    this.tanggal_lahir = response.data.data.tanggal_lahir;
-                    this.jenis_kelamin = response.data.data.jenis_kelamin;
-                    this.email = response.data.data.email;
-                    this.no_telp = response.data.data.no_telp;
-                    this.provinsi = response.data.data.provinsi;
-                    this.alamat = response.data.data.alamat;
+                    this.userID = response.data.id;
+                    this.nama = response.data.name;
+                    this.tanggal_lahir = response.data.tanggal_lahir;
+                    this.jenis_kelamin = response.data.jenis_kelamin;
+                    this.email = response.data.email;
+                    this.no_telp = response.data.no_telp;
+                    this.provinsi = response.data.provinsi;
+                    this.alamat = response.data.alamat;
                 })
         },
 
         submit() {
             this.load = true;
                 this.$http
-                    .put(this.$api + "/update/" + '1', { //test update user id = 1
+                    .put(this.$api + "/update/" + this.userID, {
                         name: this.nama,
                         tanggal_lahir: this.tanggal_lahir,
                         jenis_kelamin: this.jenis_kelamin,
@@ -188,6 +194,9 @@ export default {
                         this.snackbar = true;
                         this.load = false;
                         this.clear();
+                        this.$router.push({
+                            name: "ProfileUser",
+                        });
                     })
                     .catch((error) => {
                         this.error_message = error.response.data.message;

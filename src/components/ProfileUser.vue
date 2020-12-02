@@ -103,21 +103,26 @@ export default {
             noTelp: '',
             provinsi: '',
             alamat: '',
+            userID: '',
         }
     },
 
     methods: {
         readData() {
-            var url = this.$api + '/user/' + '1' //test show user id = 1
-            this.$http.get(url)
+            var url = this.$api + '/user'
+            this.$http.get(url, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
                 .then(response => {
-                    this.nama = response.data.data.name;
-                    this.tanggal_lahir = response.data.data.tanggal_lahir;
-                    this.jenis_kelamin = response.data.data.jenis_kelamin;
-                    this.email = response.data.data.email;
-                    this.noTelp = response.data.data.no_telp;
-                    this.provinsi = response.data.data.provinsi;
-                    this.alamat = response.data.data.alamat;
+                    this.nama = response.data.name;
+                    this.tanggal_lahir = response.data.tanggal_lahir;
+                    this.jenis_kelamin = response.data.jenis_kelamin;
+                    this.email = response.data.email;
+                    this.noTelp = response.data.no_telp;
+                    this.provinsi = response.data.provinsi;
+                    this.alamat = response.data.alamat;
                 })
         },
     },

@@ -49,6 +49,12 @@ const router = new VueRouter({
             meta: {title: 'ChangePicture'},
             component: importComponent('ChangePicture'),
         },
+        {
+            path: "/login",
+            name: "login",
+            meta: {title: 'Login'},
+            component: importComponent('Login'),
+        },
     ]
 });
 

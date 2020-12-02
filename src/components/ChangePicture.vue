@@ -43,21 +43,89 @@
         ?> -->
 
         <div style="margin: 2rem 23rem;">
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="image">
-                <input type="submit" name="submit" id="insert">
-            </form> 
+
+            <p>imagePath : {{imagePath}}</p>
+            <img src="imagePath" style="width: 100px; height: 100px">
+            
+            <br><br>
+
+            <form @submit.prevent="upload">
+                <input @change="handleOnChange" type="file">
+                <br><br>
+                <button class="btn btn-primary" style="color:white" @click="upload()">Upload</button>
+            </form>
+            
         </div>
 
-        <a href="/ProfileUser" class="btn btn-primary" style="position:absolute; left:46%; color:white">Back to Profile</a>
+        <a href="/ProfileUser" class="btn btn-danger" style="position:absolute; left:35%; color:black; background-color: red">Back to Profile</a>
         
     </div>
+
+    <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>
+        {{error_message}}
+        </v-snackbar>
+
+
     </div>
 </template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+            userID: '',
+            imagePath: '',
+            load: false,
+            snackbar: false,
+            error_message: '',
+            color: '',
+        }
+    },
+
+    methods: {
+        readData() {
+            var url = this.$api + '/user'
+            this.$http.get(url, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .then(response => {
+                    this.userID = response.data.id;
+                    this.imagePath = response.data.image;
+                })
+        },
+
+        handleOnChange(e) {
+            this.image = e.target.files[0]
+        },
+
+        upload() {
+            const formData = new FormData
+            formData.set('image', this.image)
+            this.$http.post(this.$api + "/updatePic/" + this.userID, formData, {
+            headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+                }).then(response => {
+                this.error_message = response.data.message;
+                this.color = "green"
+                this.snackbar = true;
+                this.load = false;
+                this.readData();
+                }).catch(error => {
+                this.error_message = error.response.data.message;
+                this.color = "red"
+                this.snackbar = true;
+                this.load = false;
+                this.readData();
+            })
+        }
+    },
+
+    mounted() {
+        this.readData();
+    }
 }
 </script>
 
