@@ -31,7 +31,12 @@
     <div class="container" style="width: 60%">
 
         <div>
-            <img src="@/assets/profile.png" class="mx-auto d-block rounded-circle" alt="Cinque Terre" style="margin-top: 1rem;">
+            <img :src="'http://127.0.0.1:8000/image/' + image" 
+                class="mx-auto d-block rounded-circle" 
+                alt="Cinque Terre" 
+                style="margin-top: 1rem;"
+                width="150px"
+                height="150px">
         </div>
 
         <div style="margin: 1rem" align="center">
@@ -103,6 +108,7 @@ export default {
             noTelp: '',
             provinsi: '',
             alamat: '',
+            image: '',
             userID: '',
         }
     },
@@ -123,6 +129,7 @@ export default {
                     this.noTelp = response.data.no_telp;
                     this.provinsi = response.data.provinsi;
                     this.alamat = response.data.alamat;
+                    this.image = response.data.image;
                 })
         },
     },

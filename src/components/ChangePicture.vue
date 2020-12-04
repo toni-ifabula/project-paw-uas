@@ -30,34 +30,28 @@
 
     <div class="container">
 
-        <!-- <?php
-            $q = mysqli_query($con,"SELECT * FROM users where id=1");
-            while($row = mysqli_fetch_assoc($q)){
-                if($row['image'] == ""){
-                    echo "<img src='profile_images/default.png' class='mx-auto d-block rounded-circle' alt='Cinque Terre' style='margin-top: 1rem;'>";
-                } else {
-                    echo "<img width='200' height='200' src='profile_images/".$row['image']."' class='mx-auto d-block rounded-circle' alt='Cinque Terre' style='margin-top: 1rem;'>";
-                }
-                echo "<br>";
-            }
-        ?> -->
-
         <div style="margin: 2rem 23rem;">
 
-            <p>imagePath : {{imagePath}}</p>
-            <img src="imagePath" style="width: 100px; height: 100px">
+            <img :src="'http://127.0.0.1:8000/image/' + image" 
+                class="mx-auto d-block rounded-circle" 
+                alt="Cinque Terre" 
+                style="margin-top: 1rem;"
+                width="150px"
+                height="150px">
             
             <br><br>
 
             <form @submit.prevent="upload">
-                <input @change="handleOnChange" type="file">
+                <input style="margin-left: 5rem;" @change="handleOnChange" type="file">
                 <br><br>
-                <button class="btn btn-primary" style="color:white" @click="upload()">Upload</button>
+                <button class="btn btn-primary mx-auto d-block" style="color:white" @click="upload()">Upload</button>
             </form>
-            
-        </div>
 
-        <a href="/ProfileUser" class="btn btn-danger" style="position:absolute; left:35%; color:black; background-color: red">Back to Profile</a>
+            <br><br>
+            
+            <a href="/ProfileUser" class="btn mx-auto d-block" style="color:white; background-color: green">Back to Profile</a>
+
+        </div>
         
     </div>
 
@@ -74,7 +68,7 @@ export default {
     data() {
         return {
             userID: '',
-            imagePath: '',
+            image: '',
             load: false,
             snackbar: false,
             error_message: '',
@@ -92,12 +86,12 @@ export default {
             })
                 .then(response => {
                     this.userID = response.data.id;
-                    this.imagePath = response.data.image;
+                    this.image = response.data.image;
                 })
         },
 
         handleOnChange(e) {
-            this.image = e.target.files[0]
+            this.image = e.target.files[0];
         },
 
         upload() {

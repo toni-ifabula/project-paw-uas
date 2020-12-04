@@ -48,7 +48,7 @@
             <div class="form-group row">
                 <label for="inputJK" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" v-model="jenis_kelamin">
+                    <b-form-select v-model="jenis_kelamin" :options="optionsJK"></b-form-select>
                 </div>
             </div>
             <div class="form-group row">
@@ -116,7 +116,10 @@ export default {
             error_message: "",
             color: "",
             load: false,
-            selected: '',
+            optionsJK: [
+                { value: 'Laki-laki', text: 'Laki-laki' },
+                { value: 'Perempuan', text: 'Perempuan' }
+            ],
             options: [
                 { value: 'Nanggroe Aceh Darussalam', text: 'Nanggroe Aceh Darussalam' },
                 { value: 'Sumatera Utara', text: 'Sumatera Utara' },
